@@ -1,0 +1,5 @@
+com\example\demo\DemoApplication.class
+com\example\demo\SqlService.class
+com\example\demo\SafeCli.class
+com\example\demo\WebController.class
+com\example\demo\SqlResult.class

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <title>Lab3 JDBC</title>
+</head>
+<body>
+<h2>Execute SQL (unsafe, Statement)</h2>
+
+<form method="post" action="/execute">
+  <textarea name="sql" rows="6" cols="90" placeholder="Write full SQL here...">[[${sql}]]</textarea><br/>
+  <button type="submit">Execute</button>
+</form>
+
+<div style="margin-top:15px; color:red;" th:if="${error}">
+  Error: <span th:text="${error}"></span>
+</div>
+
+<div style="margin-top:15px;" th:if="${result}">
+  <div th:if="${result.isResultSet}">
+    <table border="1" cellpadding="5">
+      <tr>
+        <th th:each="c : ${result.columns}" th:text="${c}"></th>
+      </tr>
+      <tr th:each="r : ${result.rows}">
+        <td th:each="cell : ${r}" th:text="${cell}"></td>
+      </tr>
+    </table>
+    <div th:if="${#lists.isEmpty(result.rows)}">(no rows)</div>
+  </div>
+
+  <div th:if="${!result.isResultSet}">
+    Updated rows: <b th:text="${result.updateCount}"></b>
+  </div>
+</div>
+
+<hr/>
+
+</body>
+</html>
