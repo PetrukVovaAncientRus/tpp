@@ -1,6 +1,0 @@
-CREATE TABLE IF NOT EXISTS app_user (
-    id SERIAL PRIMARY KEY,
-    username VARCHAR(60) NOT NULL UNIQUE,
-    password VARCHAR(200) NOT NULL,
-    role VARCHAR(20) NOT NULL
-);
